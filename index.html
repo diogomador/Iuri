@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site AnaDigas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>
-        Seja bem-vindo
-    </h1>
-    
-    <h2>
-        Coisas que Nós odiamos
-    </h2>
-    
-    <ul>
-        <li> Programar sites
-        <li> Listas
-        <li> Ironia
-    </ul>
+    <div class="container">
+        <h1>Gerenciador de Tarefas</h1>
+        <div class="input-container">
+            <input type="text" id="task-input" placeholder="Digite uma nova tarefa...">
+            <button id="add-task-btn">Adicionar</button>
+        </div>
+        <ul id="task-list">
+            <!-- Tarefas serão adicionadas aqui -->
+        </ul>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
