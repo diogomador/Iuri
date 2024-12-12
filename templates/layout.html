@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQLITE 3</title>
+    <title>Gerenciador de Usuários</title>
 
-    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
-
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
     {% block link %}
-        
     {% endblock %}
-
 </head>
 <body>
+    <!-- Cabeçalho -->
+    <header class="nav">
+        <h2><a href="{{ url_for('index') }}">Usuários</a></h2>
+        {% if 'user_id' in session %}
+            <h2><a href="{{ url_for('create') }}">Adicionar</a></h2>
+            <h2><a href="{{ url_for('logout') }}">Logout</a></h2>
+        {% else %}
+            <h2><a href="{{ url_for('login') }}">Login</a></h2>
+        {% endif %}
+    </header>
+    
 
-    <div class="container">
-        <div class="nav">
-            <h2><a href="{{url_for('index')}}">Users</a></h2>
-            <h2><a href="{{url_for('create')}}">Add</a> </h2>
-        </div>
-        <div class="main">
-            {% block conteudo %}
-                
-            {% endblock %}
-        </div>
-    </div>
-    
-    
+    <!-- Conteúdo principal -->
+    <main class="main">
+        {% block conteudo %}
+        {% endblock %}
+    </main>
 </body>
 </html>

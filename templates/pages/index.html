@@ -1,22 +1,12 @@
 {% extends 'layout.html' %}
 
-{% block link %}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-{% endblock %}
-
 {% block conteudo %}
+<h1>Bem-vindo, {{ session['user_name'] }}</h1>
 
-<div class="users">
-    <ul>
-        {% for user in users %}
-        <li>
-            <span>Email:</span> 
-            {{user['email']}} 
-            <a href="{{url_for('edit', id=user['id'])}}">
-                <span class="material-symbols-outlined">edit_document</span>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+<h2>Lista de Usuários com Cadastro</h2>
+<ul>
+    {% for user in users %}
+        <li>{{ user['nome'] }} - {{ user['email'] }} <a href="{{ url_for('edit', id=user['id']) }}">Editar</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}
